@@ -9,6 +9,9 @@
 body {
   margin: 0;
   padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* ==========================================================================
@@ -71,13 +74,15 @@ a {
    ========================================================================== */
 
 .page-wrapper {
-  max-width: 1100px;
+  width: 100%;
+  max-width: 42rem;
   margin: 0 auto;
   padding: 0 2rem;
+  flex: 1;
 }
 
 main {
-  min-height: 80vh;
+  min-height: 0;
 }
 
 /* ==========================================================================
@@ -829,4 +834,20 @@ nav a.active::after {
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+.site-footer {
+  border-top: 1px solid #e7e5e4;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #a8a29e;
+}
+
+.site-footer p {
+  margin: 0;
 }

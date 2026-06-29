@@ -1,6 +1,7 @@
 <header class="navbar">
   <div class="masthead">
-    <span class="date" x-data x-text="new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })"></span>
+    <span class="date" id="nav-date"></span>
+    <script>document.getElementById('nav-date').textContent=new Date().toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'})</script>
     <h1 class="name">Matthew deHaas</h1>
   </div>
   <nav>

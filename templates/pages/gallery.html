@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Gallery — Matthew deHaas{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto">
+  <div class="section-header">
+    <h2>Gallery</h2>
+    <span class="count">{{ albums.len() }} {% if albums.len() == 1 %}album{% else %}albums{% endif %}</span>
+  </div>
+
+  <div class="gallery-grid">
+    {% for album in albums %}
+    <a class="album-card in-view" href="/gallery/{{ album.slug }}">
+      <div class="album-cover">
+        <img src="{{ album.cover_url }}" alt="{{ album.title }}" loading="lazy" decoding="async">
+      </div>
+      <div class="album-info">
+        <span class="album-title">{{ album.title }}</span>
+        <span class="album-year">{{ album.date }}</span>
+      </div>
+      <p class="album-desc">{{ album.description }}</p>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

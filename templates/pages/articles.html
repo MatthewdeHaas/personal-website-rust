@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Articles — Matthew deHaas{% endblock %}
+{% block content %}
+<div class="max-w-2xl mx-auto">
+  <div class="section-header">
+    <h2>My Articles</h2>
+    <span class="count">{{ posts.len() }} {% if posts.len() == 1 %}entry{% else %}entries{% endif %}</span>
+  </div>
+  <div class="article-list">
+    {% for post in posts %}
+    <a class="article-item" href="/articles/{{ post.slug }}">
+      <div class="article-header">
+        <h3>{{ post.title }}</h3>
+        <time>{{ post.date }}</time>
+      </div>
+      <p>{{ post.description }}</p>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

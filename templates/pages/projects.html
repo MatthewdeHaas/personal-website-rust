@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Projects — Matthew deHaas{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto">
+  <div class="section-header">
+    <h2>Projects</h2>
+    <span class="count">{{ projects.len() }} {% if projects.len() == 1 %}project{% else %}projects{% endif %}</span>
+  </div>
+
+  <div class="project-list">
+    {% for project in projects %}
+    <article class="project-item">
+      {% if let Some(img) = project.image %}
+      <img class="project-image" src="{{ img }}" alt="{{ project.title }}" />
+      {% endif %}
+
+      <div class="project-content">
+        <div class="project-header">
+          <h3>{{ project.title }}</h3>
+          <span class="year">{{ project.year }}</span>
+        </div>
+
+        <p class="description">{{ project.description }}</p>
+
+        <div class="meta-row">
+          <div class="tags">
+            {% for tag in project.tags %}
+            <span class="tag">{{ tag }}</span>
+            {% endfor %}
+          </div>
+
+          <div class="links">
+            {% for link in project.links %}
+            <a href="{{ link.href }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

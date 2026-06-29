@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}{{ album.title }} — Gallery — Matthew deHaas{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto">
+  <div class="album-header">
+    <a class="back-link" href="/gallery">← Gallery</a>
+    <div class="album-title-row">
+      <h2>{{ album.title }}</h2>
+      <span class="year">{{ album.date }}</span>
+    </div>
+    <p class="description">{{ album.description }}</p>
+  </div>
+
+  <div class="masonry">
+    {% for asset in album.assets %}
+    <div class="asset-card in-view">
+      {% if asset.asset_type == "video" %}
+      <video src="/media/albums/{{ album.slug }}/{{ asset.file_name }}" controls playsinline></video>
+      {% else %}
+      <img src="/media/albums/{{ album.slug }}/{{ asset.file_name }}" alt="{{ asset.file_name }}" loading="lazy" decoding="async">
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

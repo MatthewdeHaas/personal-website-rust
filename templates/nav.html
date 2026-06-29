@@ -1,0 +1,12 @@
+<header class="navbar">
+  <div class="masthead">
+    <span class="date" x-data x-text="new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })"></span>
+    <h1 class="name">Matthew deHaas</h1>
+  </div>
+  <nav>
+    <a href="/" {% if current_path == "/" %}class="active"{% endif %}>Home</a>
+    <a href="/projects" {% if current_path == "/projects" %}class="active"{% endif %}>Projects</a>
+    <a href="/articles" {% if current_path.starts_with("/articles") %}class="active"{% endif %}>Articles</a>
+    <a href="/gallery" {% if current_path.starts_with("/gallery") %}class="active"{% endif %}>Gallery</a>
+  </nav>
+</header>

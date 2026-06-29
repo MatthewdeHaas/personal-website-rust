@@ -1,0 +1,10 @@
+{% for asset in assets %}
+<div class="asset-card in-view">
+  {% if asset.asset_type == "photo" %}
+  <img src="{{ asset.url }}" {% match asset.caption %}{% when Some with (cap) %}alt="{{ cap }}"{% when None %}alt=""{% endmatch %} loading="lazy" decoding="async">
+  {% else %}
+  <video src="{{ asset.url }}" controls playsinline></video>
+  {% endif %}
+  {% if let Some(cap) = asset.caption %}<p class="caption">{{ cap }}</p>{% endif %}
+</div>
+{% endfor %}

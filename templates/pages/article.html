@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }} — Matthew deHaas{% endblock %}
+
+{% block content %}
+<article class="max-w-2xl mx-auto">
+  <div class="article-meta">
+    <h1>{{ post.title }}</h1>
+    <time>{{ post.date }}</time>
+  </div>
+  <div class="prose">
+    {{ content|safe }}
+  </div>
+</article>
+{% endblock %}
